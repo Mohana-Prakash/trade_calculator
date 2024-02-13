@@ -5,7 +5,7 @@ import Trade from "./components/trade";
 function App() {
   return (
     <>
-      <h2 style={{ textAlign: "center" }}>Trade Calculator</h2>
+      <h2 style={{ textAlign: "center" }}>Trade </h2>
       <Trade />
     </>
   );
