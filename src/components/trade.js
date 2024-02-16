@@ -26,7 +26,8 @@ function Trade() {
             placeholder="IPP Supply"
             onChange={handleChange}
             value={obj.supply}
-          />
+          />{" "}
+          MWh
         </div>
         <div>
           <p>RES Demand:</p>
@@ -36,7 +37,8 @@ function Trade() {
             placeholder="RES Demand"
             onChange={handleChange}
             value={obj.demand}
-          />
+          />{" "}
+          MWh
         </div>
         <div>
           <p>Contract Price:</p>
@@ -46,7 +48,8 @@ function Trade() {
             placeholder="Contract Price"
             onChange={handleChange}
             value={obj.contractPrice}
-          />
+          />{" "}
+          €/MWh
         </div>
         <div>
           <p>Market Price:</p>
@@ -56,7 +59,8 @@ function Trade() {
             placeholder="Market Price"
             onChange={handleChange}
             value={obj.marketPrice}
-          />
+          />{" "}
+          €/MWh
         </div>
         {/* <button onClick={tradeCalculator}>Calculate</button> */}
       </div>

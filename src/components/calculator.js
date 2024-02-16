@@ -27,39 +27,39 @@ function Calculator({ obj }) {
       </div>
       <div>
         <p>
-          IPP Deserved Price (IPP Supply * Contract Price):{" "}
-          <b>{ippDeservedPrice.toFixed(2)}</b> €/MWh
+          Contracted Price (IPP Supply * Contract Price):{" "}
+          <b>{ippDeservedPrice.toFixed(2)}</b> €
         </p>
         <p>
-          IPP Received Price (IPP Supply * Market Price):{" "}
-          <b>{ippReceivedPrice.toFixed(2)}</b> €/MWh
+          Revenue Per Hour (IPP Supply * Market Price):{" "}
+          <b>{ippReceivedPrice.toFixed(2)}</b> €
         </p>
         <p>
-          Price Difference{" "}
+          Financial PPA Settlement{" "}
           {refundPrice > 0 && (
             <span style={{ fontWeight: "600", fontSize: "17px" }}>
-              ( Note :{" "}
+              (
               {Number(contractPrice) < Number(marketPrice)
                 ? "IPP need to pay excess price to RES"
                 : "RES need to pay deficit price to IPP"}
               )
             </span>
           )}
-          : <b>{refundPrice.toFixed(2)}</b> €/MWh
+          : <b>{refundPrice.toFixed(2)}</b> €
         </p>
         <p>
-          RES Demand Energy Price (RES Demand * Market Price):{" "}
-          <b>{resDemandPrice.toFixed(2)}</b> €/MWh
+          OMIE Sourcing Cost (RES Demand * Market Price):{" "}
+          <b>{resDemandPrice.toFixed(2)}</b> €
         </p>
         <p>
           {}
-          RES Total Payment to OMIE:{" "}
+          Total Energy Cost of RES:{" "}
           <b>
             {Number(contractPrice) < Number(marketPrice)
               ? (resDemandPrice - refundPrice).toFixed(2)
               : (resDemandPrice + refundPrice).toFixed(2)}
           </b>{" "}
-          €/MWh
+          €
         </p>
       </div>
     </div>
