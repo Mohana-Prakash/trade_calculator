@@ -40,8 +40,8 @@ function Calculator({ obj }) {
             <span style={{ fontWeight: "600", fontSize: "17px" }}>
               (
               {Number(contractPrice) < Number(marketPrice)
-                ? "IPP need to pay excess price to RES"
-                : "RES need to pay deficit price to IPP"}
+                ? "IPP pay to RES"
+                : "RES pay to IPP"}
               )
             </span>
           )}
