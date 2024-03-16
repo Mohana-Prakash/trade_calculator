@@ -1,11 +1,14 @@
-input{
+body {
+  margin: 0;
+}
+input {
   padding: 7px;
   border-radius: 5px;
   outline: none;
   border: solid 1px grey;
 }
 
-button{
+button {
   margin-top: 2rem;
   padding: 5px 10px;
   border: solid 1px grey;
@@ -18,19 +21,39 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.basic_details{
+.basic_details {
   border: solid 1px grey;
   display: flex;
   padding: 10px;
   justify-content: space-between;
 }
-.basic_details p{
+.basic_details p {
   padding: 10px;
   border: solid 1px grey;
   border-radius: 7px;
   text-align: center;
 }
-b{
-  font-size: 20px;
-  color: red;
+b {
+  font-size: 22px;
+  color: dodgerblue;
+}
+.nav_div {
+  padding: 5px 20px;
+  background-color: #c7c7c7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_menu {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_menu p {
+  font-weight: 600;
+  cursor: pointer;
+}
+.nav_menu p:hover {
+  color: gray;
 }

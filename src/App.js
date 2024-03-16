@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
 import Trade from "./components/trade";
+import Navbar from "./components/nav";
+import NewDash from "./components/newDash";
 
 function App() {
   return (
     <>
-      <h2 style={{ textAlign: "center" }}>Trade Calculator</h2>
-      <Trade />
+      <Navbar />
+      {/* <Trade /> */}
+      <NewDash />
     </>
   );
 }
