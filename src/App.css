@@ -1,6 +1,9 @@
 body {
   margin: 0;
 }
+p {
+  margin-bottom: 7px;
+}
 input {
   padding: 7px;
   border-radius: 5px;
@@ -45,15 +48,17 @@ b {
   align-items: center;
 }
 .nav_menu {
-  width: 30%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav_menu p {
+.nav_menu_link {
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
-.nav_menu p:hover {
+.nav_menu_link:hover {
   color: gray;
 }

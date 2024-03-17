@@ -16,9 +16,7 @@ function Trade() {
 
   return (
     <>
-      <h2 style={{ textAlign: "center", textDecoration: "underline" }}>
-        Trade & Settlement Calculations
-      </h2>
+      <h2 className="text-center my-4">Trade & Settlement Calculations</h2>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <div style={{ width: "25%" }}>
           <div>
@@ -65,7 +63,6 @@ function Trade() {
             />{" "}
             €/MWh
           </div>
-          {/* <button onClick={tradeCalculator}>Calculate</button> */}
         </div>
         <div style={{ width: "60%" }}>
           <Calculator obj={obj} />

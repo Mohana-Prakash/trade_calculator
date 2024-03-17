@@ -1,13 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className="nav_div">
       <div style={{ width: "12%" }}>
-        <img src="./asset/logo.png" style={{ width: "100%" }} />
+        <img src="./asset/logo.png" style={{ width: "100%" }} alt="" />
       </div>
       <div className="nav_menu">
-        <p>Trade & Settlement</p>
-        <p>P&L and VAR Calculation</p>
+        <p className="m-0">
+          <Link to="/" className="nav_menu_link">
+            Trade & Settlement
+          </Link>
+        </p>
+        <p className="m-0">
+          <Link to="/ipp_res_dash" className="nav_menu_link">
+            P&L and VAR
+          </Link>
+        </p>
       </div>
     </div>
   );

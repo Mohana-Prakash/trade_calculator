@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function NewDash() {
   const [year, setYear] = useState(new Date().getFullYear() - 1);
   const [omipPrice, setOmipPrice] = useState(0);
+  const [calcBoolean, setCalcBoolean] = useState(false);
   const totalHours = year % 4 === 0 ? "8784" : "8760";
   const profileVolume = (50 * totalHours * 18) / 100;
   const fixedDailyProduction = 45 * profileVolume;
@@ -18,21 +19,12 @@ function NewDash() {
       ? 100 - positionReturnPercent
       : positionReturnPercent - 100;
   const profit_or_loss =
-    fixedDailyProduction > dailyProduction ? "Loss" : "Profit";
-  const color = profit_or_loss === "Loss" ? "red" : "green";
+    fixedDailyProduction > dailyProduction ? "LOSS" : "PROFIT";
+  const color = profit_or_loss === "LOSS" ? "red" : "green";
   return (
     <>
-      <h2 style={{ textAlign: "center", textDecoration: "underline" }}>
-        P&L and VAR Calculations
-      </h2>
-      <div
-        style={{
-          width: "50%",
-          margin: "auto",
-          padding: "10px",
-          backgroundColor: "#c7c7c7",
-        }}
-      >
+      <h2 className="text-center my-4">P&L and VAR Calculations</h2>
+      <div className="w-50 m-auto p-3" style={{ backgroundColor: "#c7c7c7" }}>
         <p>
           Choose year{" "}
           <input
@@ -56,81 +48,84 @@ function NewDash() {
         </p>
       </div>
       <div
-        style={{
-          width: "70%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "1rem auto",
-        }}
+        style={{ width: "80%", backgroundColor: "#c7c7c7", height: "46vh" }}
+        className="d-flex justify-conten-between mx-auto my-2"
       >
-        <div
-          style={{
-            backgroundColor: "#c7c7c7",
-            textAlign: "center",
-            padding: "0px 10px",
-            height: "46vh",
-          }}
-        >
-          <p style={{ fontWeight: "700" }}>Fixed PPA Power Price</p>
+        <div className="p-3 border-right" style={{ width: "45%" }}>
+          <p className="text-center font-weight-bold">Fixed PPA Power Price</p>
           <p>
             OMIP Baseload €/MWh (hist) price = <b>45</b> €/MWh
           </p>
-          <p>
+          <p className="border-bottom">
             Forecasted production daily return = <b>€ {45 * profileVolume}</b>
+            <h6 className="text-left" style={{ fontSize: "12px" }}>
+              <i>(OMIP Price * Profile Volume)</i>
+            </h6>
           </p>
+          {calcBoolean && (
+            <div>
+              <div className="d-flex justify-content-between">
+                <p className="text-center font-weight-bold">Calculations</p>
+                <p
+                  className="font-weight-bold"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setCalcBoolean(false)}
+                >
+                  X
+                </p>
+              </div>
+              <div>
+                <img style={{ width: "100%" }} src="./asset/pl_var_calc.png" />
+              </div>
+            </div>
+          )}
         </div>
-        <div style={{ backgroundColor: "#c7c7c7", height: "46vh" }}>
-          <div
-            style={{
-              padding: "10px",
-            }}
-          >
-            <p>
-              OMIP Baseload €/MWh (hist) price ={" "}
-              <input
-                type="text"
-                value={omipPrice}
-                onChange={(e) => setOmipPrice(e.target.value)}
-              />{" "}
-              €/MWh
-            </p>
-            <p>
-              Forecasted production daily return ={" "}
-              <b>€ {Math.round(omipPrice * profileVolume)}</b>
-            </p>
-            <p>
-              Position return % ={" "}
-              <b style={{ color: color }}>
-                {omipPrice !== 0 ? positionReturnPercent : 0}
-              </b>{" "}
-              %
-            </p>
-            <p>
-              MTM Profit/Loss % ={" "}
-              <b style={{ color: color }}>
-                {omipPrice !== 0 ? Math.round(diffPercent * 100) / 100 : 0}
-              </b>{" "}
-              %
-            </p>
-            <p>
-              MTM Profit/Loss ={" "}
-              <b style={{ color: color }}>
-                € {omipPrice !== 0 ? difference : 0}
-              </b>
-            </p>
-          </div>
+        <div className="p-3" style={{ width: "55%" }}>
+          <p>
+            OMIP Baseload €/MWh (hist) price ={" "}
+            <input
+              type="text"
+              value={omipPrice}
+              onChange={(e) => setOmipPrice(e.target.value)}
+            />{" "}
+            €/MWh
+          </p>
+          <p>
+            Forecasted production daily return ={" "}
+            <b>€ {Math.round(omipPrice * profileVolume)}</b>
+          </p>
+          <p>
+            Position return ={" "}
+            <b style={{ color: color }}>
+              {omipPrice !== 0 ? positionReturnPercent : 0}
+            </b>{" "}
+            %
+          </p>
+          <p>
+            MTM Profit/Loss ={" "}
+            <b style={{ color: color }}>
+              {omipPrice !== 0 ? Math.round(diffPercent * 100) / 100 : 0}
+            </b>{" "}
+            %
+          </p>
+          <p>
+            MTM Profit/Loss ={" "}
+            <b style={{ color: color }}>€ {omipPrice !== 0 ? difference : 0}</b>
+          </p>
           {omipPrice !== 0 && (
-            <p
-              style={{
-                backgroundColor: color,
-                padding: "5px",
-                margin: "0px",
-                color: "white",
-                textAlign: "center",
-              }}
-            >
-              {profit_or_loss}
+            <p className="text-right font-weight-bold">
+              <span style={{ color: color }}>({profit_or_loss})</span>
+              <span
+                onClick={() => setCalcBoolean(true)}
+                className="font-italic text-primary"
+                style={{
+                  marginLeft: "10px",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+              >
+                View Calculations
+              </span>
             </p>
           )}
         </div>
