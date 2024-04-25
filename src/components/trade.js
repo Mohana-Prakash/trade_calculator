@@ -17,8 +17,14 @@ function Trade() {
   return (
     <>
       <h2 className="text-center my-4">Trade & Settlement Calculations</h2>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <div style={{ width: "25%" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "25%" }} className="input_label_div">
           <div>
             <p>IPP Supply:</p>
             <input

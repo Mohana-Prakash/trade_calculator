@@ -36,6 +36,9 @@ input::-webkit-inner-spin-button {
   border-radius: 7px;
   text-align: center;
 }
+.input_label_div > div {
+  margin: 20px 0;
+}
 b {
   font-size: 22px;
   color: dodgerblue;

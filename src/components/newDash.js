@@ -110,7 +110,8 @@ function NewDash() {
           </p>
           <p>
             MTM Profit/Loss ={" "}
-            <b style={{ color: color }}>€ {omipPrice !== 0 ? difference : 0}</b>
+            <b style={{ color: color }}> {omipPrice !== 0 ? difference : 0}</b>{" "}
+            €
           </p>
           {omipPrice !== 0 && (
             <p className="text-right font-weight-bold">

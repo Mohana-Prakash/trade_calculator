@@ -11,10 +11,12 @@ function Calculator({ obj }) {
   const resDemandPrice = Number(demand) * Number(marketPrice);
   return (
     <div className="calculator">
-      <div className="basic_details">
-        <p>
-          IPP Supply: <b>{Number(supply)}</b> MWh
-        </p>
+      {/* <div className="basic_details">
+        <div>
+          <p>
+            IPP Supply: <b>{Number(supply)}</b> MWh
+          </p>
+        </div>
         <p>
           RES Demand: <b>{Number(demand)}</b> MWh
         </p>
@@ -24,7 +26,7 @@ function Calculator({ obj }) {
         <p>
           Market Price: <b>{Number(marketPrice)}</b> €/MWh
         </p>
-      </div>
+      </div> */}
       <div>
         <p>
           Contracted Price (IPP Supply * Contract Price):{" "}
