@@ -3,8 +3,7 @@ import JSZip from "jszip";
 import axios from "axios";
 
 function Unzip() {
-  const [files, setFiles] = useState([]);
-
+  const [priceArr, setPriceArr] = useState([]);
   //   useEffect(() => {
   //     axios
   //       .get(
@@ -14,40 +13,26 @@ function Unzip() {
   //   }, []);
 
   const handleFileUpload = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
+    let file = event.target.files[0];
     try {
       const zip = await JSZip.loadAsync(file);
-      const unzippedFiles = [];
-      const formData = new FormData();
-
-      await Promise.all(
-        Object.keys(zip.files).map(async (fileName) => {
-          const file = zip.files[fileName];
-          if (!file.dir) {
-            const content = await file.async("string");
-            unzippedFiles.push({
-              name: fileName,
-              content: content,
-            });
-          }
-        })
-      );
-      const filteredFile = unzippedFiles.filter((file) =>
-        file.name.includes("prmdiari")
-      );
-
-      const blob = new Blob([file.content], { type: "text/plain" });
-      formData.append(`price_file`, blob, filteredFile.name);
-
-      //   setFiles(filteredFile);
+      let find_file = await zip.files[
+        Object.keys(zip.files).find((file) => file.includes("prmdiari"))
+      ];
+      if (!find_file.dir) {
+        let content = await find_file.async("string");
+        let data = content
+          .split("\r\n")
+          .slice(2, -2)
+          .map((e) => {
+            return e.split(";").slice(1, -2);
+          });
+        setPriceArr(data);
+      }
     } catch (error) {
       console.error("Error unzipping file:", error);
     }
   };
-
-  console.log(files);
 
   return (
     <div>
@@ -61,6 +46,22 @@ function Unzip() {
             <li key={index}>{file.name}</li>
           ))}
         </ul> */}
+      </div>
+      <div>
+        {priceArr.map((e, i) => {
+          return (
+            <div key={i} style={{ marginTop: "10px" }}>
+              Day {i + 1}
+              {e.map((a, j) => {
+                return (
+                  <span className="price_span">
+                    {Number(a)} (<i className="text-danger">{j + 1}</i>)
+                  </span>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

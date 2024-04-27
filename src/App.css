@@ -65,3 +65,10 @@ b {
 .nav_menu_link:hover {
   color: gray;
 }
+.price_span{
+  width: 5%;
+  padding: 5px;
+  background-color: lightgray;
+  margin-left: 5px;
+  font-size: 10.5px;
+}
