@@ -17,11 +17,11 @@ function Navbar() {
             P&L and VAR
           </Link>
         </p>
-        <p className="m-0">
+        {/* <p className="m-0">
           <Link to="/upzip_file" className="nav_menu_link">
             Unzip File
           </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );

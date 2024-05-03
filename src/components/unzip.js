@@ -4,13 +4,38 @@ import axios from "axios";
 
 function Unzip() {
   const [priceArr, setPriceArr] = useState([]);
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         "https://api.esios.ree.es/archives/2/download?date_type=datos&end_date=2024-02-01T23%3A59%3A59%2B00%3A00&locale=es&start_date=2024-01-01T00%3A00%3A00%2B00%3A00"
-  //       )
-  //       .then((e) => console.log(e));
-  //   }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://www.omie.es/es/file-download?parents%5B0%5D=marginalpdbc&filename=marginalpdbc_20240502.1"
+  //     )
+  //     .then((e) => console.log(e))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  useEffect(() => {
+    let url =
+      "https://www.omie.es/es/file-download?parents%5B0%5D=marginalpdbc&filename=marginalpdbc_20240502.1";
+    // axios
+    //   .get(
+
+    //   )
+    //   .then((e) => console.log(e))
+    //   .catch((err) => console.log(err));
+
+    axios({
+      method: "GET",
+      url: url,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleFileUpload = async (event) => {
     let file = event.target.files[0];
