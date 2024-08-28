@@ -17,6 +17,11 @@ function Navbar() {
             P&L and VAR
           </Link>
         </p>
+        <p className="m-0">
+          <Link to="/radius_meter" className="nav_menu_link">
+            Radius Meter
+          </Link>
+        </p>
         {/* <p className="m-0">
           <Link to="/upzip_file" className="nav_menu_link">
             Unzip File
