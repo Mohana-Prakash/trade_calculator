@@ -65,12 +65,6 @@ function Unzip() {
 
       <div className="w-50 m-auto">
         <input className="w-100" type="file" onChange={handleFileUpload} />
-        {/* <h3>Unzipped files:</h3>
-        <ul>
-          {files.map((file, index) => (
-            <li key={index}>{file.name}</li>
-          ))}
-        </ul> */}
       </div>
       <div>
         {priceArr.map((e, i) => {

@@ -29,6 +29,7 @@ function RadiusMeter() {
 
   return (
     <div style={{ marginTop: "10px" }}>
+      <span>Records: <b>{content.length}</b></span>
       <table>
         {content.map((e) => {
           return (

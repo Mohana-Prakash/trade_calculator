@@ -26,6 +26,12 @@ function Navbar() {
           <Link to="/upzip_file" className="nav_menu_link">
             Unzip File
           </Link>
+        </p>
+        <p className="m-0">
+          <Link to="/clock" className="nav_menu_link">
+            Clock
+          </Link>
+        </p>
         </p> */}
       </div>
     </div>

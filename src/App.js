@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Unzip from "./components/unzip";
 import axios from "axios";
 import RadiusMeter from "./components/radiusMeter";
+import Time_Zone_Clock from "./components/clock";
 
 function App() {
   // const [content, setContent] = useState({});
@@ -33,6 +34,7 @@ function App() {
           <Route path="/ipp_res_dash" exact element={<NewDash />} />
           <Route path="/upzip_file" exact element={<Unzip />} />
           <Route path="/radius_meter" exact element={<RadiusMeter />} />
+          <Route path="/clock" exact element={<Time_Zone_Clock />} />
         </Routes>
       </Router>
       {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
