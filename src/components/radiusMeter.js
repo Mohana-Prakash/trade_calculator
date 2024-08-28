@@ -4,7 +4,7 @@ import moment from "moment";
 
 function RadiusMeter() {
   const [content, setContent] = useState([]);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
 
   const arr = [
     "D/T",
@@ -43,7 +43,7 @@ function RadiusMeter() {
       const reqObj = {
         type: "LP",
         meter_serial_no: "22053241",
-        date: moment(date).format("YYYY-MM-DD"),
+        date: moment(date || new Date()).format("YYYY-MM-DD"),
         count: 0,
         r_count: 100,
       };
