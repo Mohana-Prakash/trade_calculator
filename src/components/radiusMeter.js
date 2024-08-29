@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
+import { ColorRing } from "react-loader-spinner";
 
 function RadiusMeter() {
   const [content, setContent] = useState([]);
   const [date, setDate] = useState(new Date());
-
+  const [loading, setLoading] = useState(false);
   const arr = [
-    "D/T",
+    "Date/Time",
     "",
     "",
     "",
@@ -39,6 +40,7 @@ function RadiusMeter() {
 
   useEffect(() => {
     const postData = async () => {
+      setLoading(true);
       const url = "https://sm3.talk2device.com/gtDta";
       const reqObj = {
         type: "LP",
@@ -53,13 +55,17 @@ function RadiusMeter() {
       try {
         const response = await axios.post(url, reqObj, { headers });
         setContent(response.data.DATA.map((e) => e.raw_data));
+        setLoading(false);
       } catch (error) {
         console.error("Error during POST request:", error);
+        setLoading(false);
       }
     };
 
     postData();
   }, [date]);
+
+  const rowHandler = (e) => {};
 
   return (
     <div style={{ marginTop: "10px" }}>
@@ -67,8 +73,11 @@ function RadiusMeter() {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
           marginBottom: "10px",
-        }}>
+          padding: "0px 10px",
+        }}
+      >
         <span>
           Records: <b>{content.length}</b>
         </span>
@@ -76,24 +85,43 @@ function RadiusMeter() {
           type="date"
           name="date"
           onChange={(e) => setDate(e.target.value)}
+          value={date}
         />
       </div>
-      <table>
-        <tr>
-          {arr.map((e, i) => {
-            return <th key={i}>{e}</th>;
-          })}
-        </tr>
-        {content.map((e, i) => {
-          return (
-            <tr key={i}>
-              {e.split(",").map((a, b) => {
-                return <td key={b}>{b === 0 ? a : Number(a).toFixed(2)}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </table>
+      {loading ? (
+        <div className="loader">
+          <ColorRing visible={true} height="100" width="100" />
+        </div>
+      ) : (
+        <div>
+          {content.length > 0 ? (
+            <div className="table_container">
+              <table>
+                <tr className="fixed_header">
+                  {arr.map((e, i) => {
+                    return <th key={i}>{e}</th>;
+                  })}
+                </tr>
+                {content.map((e, i) => {
+                  return (
+                    <tr key={i} onClick={() => rowHandler(e)}>
+                      {e.split(",").map((a, b) => {
+                        return (
+                          <td key={b}>{b === 0 ? a : Number(a).toFixed(2)}</td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
+          ) : (
+            <p style={{ textAlign: "center" }}>
+              <b>No Records</b>
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

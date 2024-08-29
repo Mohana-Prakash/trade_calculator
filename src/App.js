@@ -26,7 +26,7 @@ function App() {
   // }, []);
 
   return (
-    <div style={{ padding: "10px" }}>
+    <div>
       <Router>
         <Navbar />
         <Routes>

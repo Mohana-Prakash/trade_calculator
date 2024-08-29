@@ -1,5 +1,30 @@
 body {
   margin: 0;
+  background-color: rgb(60, 104, 158);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.loader {
+  display: flex;
+  justify-content: center;
 }
 p {
   margin-bottom: 7px;
@@ -41,14 +66,15 @@ input::-webkit-inner-spin-button {
 }
 b {
   font-size: 22px;
-  color: dodgerblue;
+  color: rgb(88 255 155);
 }
 .nav_div {
   padding: 5px 20px;
-  background-color: #c7c7c7;
+  background-color: rgb(41, 75, 117);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: solid 1px lightgray;
 }
 .nav_menu {
   width: 30%;
@@ -60,7 +86,7 @@ b {
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .nav_menu_link:hover {
   color: gray;
@@ -72,11 +98,30 @@ b {
   margin-left: 5px;
   font-size: 10.5px;
 }
-
+input {
+  background-color: rgb(41, 75, 117);
+  color: white;
+}
 table,
 th,
 td {
-  border: 1px solid black;
-  padding: 4px;
+  margin: 10px;
+  padding: 6px;
   text-align: center;
+  border: 1px solid rgb(139, 139, 139);
+  font-size: 14px;
+}
+tr:hover {
+  background-color: rgb(41, 75, 117);
+  cursor: pointer;
+}
+.table_container {
+  height: 450px;
+  overflow-y: scroll;
+}
+.fixed_header th {
+  position: sticky;
+  top: 0;
+  background-color: rgb(41, 75, 117);
+  z-index: 1;
 }

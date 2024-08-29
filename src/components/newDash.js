@@ -24,7 +24,10 @@ function NewDash() {
   return (
     <>
       <h2 className="text-center my-4">P&L and VAR Calculations</h2>
-      <div className="w-50 m-auto p-3" style={{ backgroundColor: "#c7c7c7" }}>
+      <div
+        className="w-50 m-auto p-3"
+        style={{ backgroundColor: "rgb(41, 75, 117)" }}
+      >
         <p>
           Choose year{" "}
           <input
@@ -48,7 +51,11 @@ function NewDash() {
         </p>
       </div>
       <div
-        style={{ width: "80%", backgroundColor: "#c7c7c7", height: "46vh" }}
+        style={{
+          width: "80%",
+          backgroundColor: "rgb(41, 75, 117)",
+          height: "46vh",
+        }}
         className="d-flex justify-conten-between mx-auto my-2"
       >
         <div className="p-3 border-right" style={{ width: "45%" }}>

@@ -1,27 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
 function Navbar() {
+  const menu_arr = [
+    {
+      path: "/",
+      menuName: "Trade & Settlement",
+    },
+    {
+      path: "/ipp_res_dash",
+      menuName: "P&L and VAR",
+    },
+    {
+      path: "/radius_meter",
+      menuName: "Radius Meter",
+    },
+  ];
   return (
     <div className="nav_div">
       <div style={{ width: "12%" }}>
-        <img src="./asset/logo.png" style={{ width: "100%" }} alt="" />
+        <img
+          src="https://s3.jp-tok.cloud-object-storage.appdomain.cloud/big-issue-main-bucket/GET_ENERGY/USER_AUTHORISED_SIGN/1032142f-2bc7-4d64-842c-d941197818f7/image_2024_07_17T06_21_56_545Z.png"
+          style={{ width: "100%" }}
+          alt=""
+        />
       </div>
       <div className="nav_menu">
-        <p className="m-0">
-          <Link to="/" className="nav_menu_link">
-            Trade & Settlement
-          </Link>
-        </p>
-        <p className="m-0">
-          <Link to="/ipp_res_dash" className="nav_menu_link">
-            P&L and VAR
-          </Link>
-        </p>
-        <p className="m-0">
-          <Link to="/radius_meter" className="nav_menu_link">
-            Radius Meter
-          </Link>
-        </p>
+        {menu_arr.map((e) => {
+          return (
+            <p className="m-0" key={e.menuName}>
+              <Link to={e.path} className="nav_menu_link">
+                {e.menuName}
+              </Link>
+            </p>
+          );
+        })}
         {/* <p className="m-0">
           <Link to="/upzip_file" className="nav_menu_link">
             Unzip File
