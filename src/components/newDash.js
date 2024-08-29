@@ -20,14 +20,13 @@ function NewDash() {
       : positionReturnPercent - 100;
   const profit_or_loss =
     fixedDailyProduction > dailyProduction ? "LOSS" : "PROFIT";
-  const color = profit_or_loss === "LOSS" ? "red" : "green";
+  const color = profit_or_loss === "LOSS" ? "#ff3a3a" : "rgb(88 255 155)";
   return (
     <>
       <h2 className="text-center my-4">P&L and VAR Calculations</h2>
       <div
         className="w-50 m-auto p-3"
-        style={{ backgroundColor: "rgb(41, 75, 117)" }}
-      >
+        style={{ backgroundColor: "rgb(41, 75, 117)" }}>
         <p>
           Choose year{" "}
           <input
@@ -56,8 +55,7 @@ function NewDash() {
           backgroundColor: "rgb(41, 75, 117)",
           height: "46vh",
         }}
-        className="d-flex justify-conten-between mx-auto my-2"
-      >
+        className="d-flex justify-conten-between mx-auto my-2">
         <div className="p-3 border-right" style={{ width: "45%" }}>
           <p className="text-center font-weight-bold">Fixed PPA Power Price</p>
           <p>
@@ -76,8 +74,7 @@ function NewDash() {
                 <p
                   className="font-weight-bold"
                   style={{ cursor: "pointer" }}
-                  onClick={() => setCalcBoolean(false)}
-                >
+                  onClick={() => setCalcBoolean(false)}>
                   X
                 </p>
               </div>
@@ -130,8 +127,7 @@ function NewDash() {
                   marginLeft: "10px",
                   textDecoration: "underline",
                   cursor: "pointer",
-                }}
-              >
+                }}>
                 View Calculations
               </span>
             </p>

@@ -4,7 +4,8 @@ body {
   color: white;
 }
 ::-webkit-scrollbar {
-  width: 0px;
+  height: 5px; /* For horizontal scrollbar */
+  width: 0px; /* For vertical scrollbar */
   border-radius: 5px;
 }
 
@@ -124,4 +125,14 @@ tr:hover {
   top: 0;
   background-color: rgb(41, 75, 117);
   z-index: 1;
+}
+.obis_code {
+  font-size: 12px;
+}
+.eighth_head {
+  border: solid 2px rgb(88 255 155);
+}
+.eighth_col {
+  background-color: rgb(88 255 155);
+  color: black;
 }
