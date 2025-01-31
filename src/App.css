@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  background-color: rgb(60, 104, 158);
-  color: white;
+  /* background-color: rgb(60, 104, 158); */
+  color: black;
 }
 ::-webkit-scrollbar {
   height: 5px; /* For horizontal scrollbar */
@@ -30,11 +30,13 @@ body {
 p {
   margin-bottom: 7px;
 }
-input {
+input,
+select {
   padding: 7px;
   border-radius: 5px;
   outline: none;
   border: solid 1px grey;
+  background-color: lightgray;
 }
 
 button {
@@ -78,7 +80,7 @@ b {
   border-bottom: solid 1px lightgray;
 }
 .nav_menu {
-  width: 30%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,8 +102,7 @@ b {
   font-size: 10.5px;
 }
 input {
-  background-color: rgb(41, 75, 117);
-  color: white;
+  background-color: lightgray;
 }
 table,
 th,

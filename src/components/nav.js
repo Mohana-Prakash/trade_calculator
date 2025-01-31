@@ -14,6 +14,10 @@ function Navbar() {
       path: "/radius_meter",
       menuName: "Radius Meter",
     },
+    {
+      path: "/carbon_emission",
+      menuName: "Carbon Emission Calculator",
+    },
   ];
   return (
     <div className="nav_div">

@@ -8,6 +8,7 @@ import Unzip from "./components/unzip";
 import axios from "axios";
 import RadiusMeter from "./components/radiusMeter";
 import Time_Zone_Clock from "./components/clock";
+import CarbonEmissionCalc from "./components/carbonCalc";
 
 function App() {
   // const [content, setContent] = useState({});
@@ -35,6 +36,11 @@ function App() {
           <Route path="/upzip_file" exact element={<Unzip />} />
           <Route path="/radius_meter" exact element={<RadiusMeter />} />
           <Route path="/clock" exact element={<Time_Zone_Clock />} />
+          <Route
+            path="/carbon_emission"
+            exact
+            element={<CarbonEmissionCalc />}
+          />
         </Routes>
       </Router>
       {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
