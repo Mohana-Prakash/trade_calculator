@@ -37,11 +37,11 @@ const Speedometer = () => {
           startColor="green"
           endColor="red"
           segments={10}
-          needleColor="steelblue"
           needleTransitionDuration={4000}
           needleTransition="easeElastic"
         />
       )}
+      <p style={{ fontSize: "30px" }}>{speed}</p>
     </div>
   );
 };
