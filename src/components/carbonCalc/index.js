@@ -25,12 +25,14 @@ function CarbonEmissionCalc() {
           justifyContent: "space-between",
           alignItems: "center",
         }}>
-        <h2>Carbon Emission Calculator</h2>
+        <h3>Carbon Emission Calculator</h3>
         <select
           style={{ margin: "0 10px 0" }}
           onChange={(e) => setCalc(e.target.value)}>
           <option value="flight">Flight</option>
           <option value="car">Car</option>
+          <option value="ship">Shipment</option>
+          <option value="train">Train</option>
         </select>
       </div>
       <div

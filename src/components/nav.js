@@ -11,9 +11,13 @@ function Navbar() {
       menuName: "P&L and VAR",
     },
     {
-      path: "/radius_meter",
-      menuName: "Radius Meter",
+      path: "/speedometer",
+      menuName: "Speedometer",
     },
+    // {
+    //   path: "/radius_meter",
+    //   menuName: "Radius Meter",
+    // },
     {
       path: "/carbon_emission",
       menuName: "Carbon Emission Calculator",
@@ -47,7 +51,6 @@ function Navbar() {
           <Link to="/clock" className="nav_menu_link">
             Clock
           </Link>
-        </p>
         </p> */}
       </div>
     </div>

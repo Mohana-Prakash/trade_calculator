@@ -9,6 +9,7 @@ import axios from "axios";
 import RadiusMeter from "./components/radiusMeter";
 import Time_Zone_Clock from "./components/clock";
 import CarbonEmissionCalc from "./components/carbonCalc";
+import Speedometer from "./components/speedometer";
 
 function App() {
   // const [content, setContent] = useState({});
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" exact element={<Trade />} />
           <Route path="/ipp_res_dash" exact element={<NewDash />} />
           <Route path="/upzip_file" exact element={<Unzip />} />
+          <Route path="/speedometer" exact element={<Speedometer />} />
           <Route path="/radius_meter" exact element={<RadiusMeter />} />
           <Route path="/clock" exact element={<Time_Zone_Clock />} />
           <Route
