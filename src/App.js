@@ -10,6 +10,7 @@ import RadiusMeter from "./components/radiusMeter";
 import Time_Zone_Clock from "./components/clock";
 import CarbonEmissionCalc from "./components/carbonCalc";
 import Speedometer from "./components/speedometer";
+import GreytHrTimeCalc from "./components/time_calc";
 
 function App() {
   // const [content, setContent] = useState({});
@@ -38,6 +39,7 @@ function App() {
           <Route path="/speedometer" exact element={<Speedometer />} />
           <Route path="/radius_meter" exact element={<RadiusMeter />} />
           <Route path="/clock" exact element={<Time_Zone_Clock />} />
+          <Route path="/time_calc" exact element={<GreytHrTimeCalc />} />
           <Route
             path="/carbon_emission"
             exact

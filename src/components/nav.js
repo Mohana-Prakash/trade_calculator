@@ -22,16 +22,20 @@ function Navbar() {
       path: "/carbon_emission",
       menuName: "Carbon Emission Calculator",
     },
+    {
+      path: "/time_calc",
+      menuName: "GreytHr Time Calculator",
+    },
   ];
   return (
     <div className="nav_div">
-      <div style={{ width: "12%" }}>
+      {/* <div style={{ width: "12%" }}>
         <img
           src="https://s3.jp-tok.cloud-object-storage.appdomain.cloud/big-issue-main-bucket/GET_ENERGY/USER_AUTHORISED_SIGN/1032142f-2bc7-4d64-842c-d941197818f7/image_2024_07_17T06_21_56_545Z.png"
           style={{ width: "100%" }}
           alt=""
         />
-      </div>
+      </div> */}
       <div className="nav_menu">
         {menu_arr.map((e) => {
           return (

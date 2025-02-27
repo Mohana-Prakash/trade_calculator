@@ -72,7 +72,7 @@ b {
   color: rgb(88 255 155);
 }
 .nav_div {
-  padding: 5px 20px;
+  padding: 10px 20px;
   background-color: rgb(41, 75, 117);
   display: flex;
   justify-content: space-between;
@@ -80,16 +80,20 @@ b {
   border-bottom: solid 1px lightgray;
 }
 .nav_menu {
-  width: 50%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 }
 .nav_menu_link {
+  font-size: 13px;
+  letter-spacing: 1px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   color: white;
+  margin-left: 10px;
+  text-decoration: underline;
 }
 .nav_menu_link:hover {
   color: gray;
@@ -136,4 +140,53 @@ tr:hover {
 .eighth_col {
   background-color: rgb(88 255 155);
   color: black;
+}
+
+.parent_div {
+  width: 90%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+textarea {
+  padding: 10px;
+  width: 100%;
+  height: 75vh;
+  border-radius: 10px;
+  border: solid 2px rgb(127, 206, 209);
+  font-size: 20px;
+}
+p {
+  font-size: 16px;
+  font-weight: 600;
+}
+span {
+  font-size: 26px;
+  color: red;
+  font-weight: 700;
+  font-family: "Roboto Mono", monospace;
+}
+button {
+  padding: 8px 10px;
+  outline: none;
+  font-size: 20px;
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+}
+.box_div {
+  width: 25%;
+  margin-left: 10px;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem; */
+}
+.box {
+  padding: 1rem 0;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
