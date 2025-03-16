@@ -10,36 +10,87 @@ const stripe = Stripe(
 app.use(cors());
 app.use(express.json());
 
-// ✅ Create PaymentIntent (Returns clientSecret)
+const paymentIntentsCache = {};
+
 app.post("/create-payment-intent", async (req, res) => {
   try {
-    const { amount, currency } = req.body;
+    const { previousPaymentIntentId } = req.body;
+
+    // Step 1: Check for reusable PaymentIntent
+    if (
+      previousPaymentIntentId &&
+      paymentIntentsCache[previousPaymentIntentId]
+    ) {
+      const existingIntent = await stripe.paymentIntents.retrieve(
+        previousPaymentIntentId
+      );
+
+      if (
+        ["requires_payment_method", "requires_confirmation"].includes(
+          existingIntent.status
+        )
+      ) {
+        return res.json({
+          clientSecret: existingIntent.client_secret,
+          paymentIntentId: existingIntent.id, // ✅ Reuse the existing PaymentIntent
+        });
+      }
+    }
+
+    // Step 2: Create a new PaymentIntent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency,
+      amount: 5000,
+      currency: "usd",
+      payment_method_types: ["card"],
     });
 
-    res.json({ clientSecret: paymentIntent.client_secret });
+    // Store PaymentIntent in cache for reuse
+    paymentIntentsCache[paymentIntent.id] = true;
+
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+      paymentIntentId: paymentIntent.id,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 // ✅ Process Payment (No return_url needed)
-app.post("/process-payment", async (req, res) => {
+app.post("/confirm-payment", async (req, res) => {
   try {
     const { paymentIntentId } = req.body;
 
     if (!paymentIntentId) {
-      return res.status(400).json({ error: "Missing paymentIntentId." });
+      return res.status(400).json({ error: "PaymentIntent ID is required" });
     }
 
-    // ✅ Confirm the payment
-    const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId);
+    // Retrieve the PaymentIntent
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+    console.log(`${paymentIntentId} : paymentIntent`);
 
-    res.json({ success: true, paymentIntent });
+    // Check if it's already confirmed
+    if (paymentIntent.status === "succeeded") {
+      return res.json({
+        success: true,
+        message: "Payment already succeeded",
+        paymentIntent,
+      });
+    } else if (paymentIntent.status === "requires_confirmation") {
+      // Only confirm if it requires confirmation
+      const confirmedPaymentIntent = await stripe.paymentIntents.confirm(
+        paymentIntentId
+      );
+      return res.json({ success: true, paymentIntent: confirmedPaymentIntent });
+    } else {
+      return res.json({
+        success: false,
+        message: "PaymentIntent is not ready for confirmation",
+        status: paymentIntent.status,
+      });
+    }
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({ error: error.message });
   }
 });
 

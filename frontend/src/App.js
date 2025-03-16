@@ -11,9 +11,7 @@ import Time_Zone_Clock from "./components/clock";
 import CarbonEmissionCalc from "./components/carbonCalc";
 import Speedometer from "./components/speedometer";
 import GreytHrTimeCalc from "./components/time_calc";
-import PaymentForm from "./components/stripe/confirmPayment";
 import Stripe from "./components/stripe";
-import PaymentSuccess from "./components/stripe/paymentSuccess";
 
 function App() {
   // const [content, setContent] = useState({});
@@ -44,7 +42,6 @@ function App() {
           <Route path="/clock" exact element={<Time_Zone_Clock />} />
           <Route path="/time_calc" exact element={<GreytHrTimeCalc />} />
           <Route path="/stripe" exact element={<Stripe />} />
-          <Route path="/payment-success" exact element={<PaymentSuccess />} />
           <Route
             path="/carbon_emission"
             exact

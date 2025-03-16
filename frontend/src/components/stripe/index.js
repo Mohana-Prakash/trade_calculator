@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CreatePayment from "./createPayment";
-import ConfirmPayment from "./confirmPayment";
+import ConfirmPayment from "./confirmPayment/index.js";
 
 function Stripe() {
   const [comp, setComp] = useState(false);
