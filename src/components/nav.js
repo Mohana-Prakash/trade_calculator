@@ -26,6 +26,10 @@ function Navbar() {
       path: "/time_calc",
       menuName: "GreytHr Time Calculator",
     },
+    {
+      path: "/stripe",
+      menuName: "Stripe",
+    },
   ];
   return (
     <div className="nav_div">

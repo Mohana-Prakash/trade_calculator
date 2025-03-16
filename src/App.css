@@ -167,9 +167,9 @@ span {
   font-family: "Roboto Mono", monospace;
 }
 button {
-  padding: 8px 10px;
+  padding: 4px 10px;
   outline: none;
-  font-size: 20px;
+  font-size: 14px;
   border-radius: 5px;
   border: solid 1px lightgray;
   background-color: grey;
@@ -189,4 +189,75 @@ button {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+/* Payment Page */
+.payment-container {
+  width: 350px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.col {
+  flex: 1;
+}
+
+.payment-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6772e5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.payment-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.payment-success {
+  margin-top: 20px;
+  padding: 10px;
+  background: #d4edda;
+  border-left: 5px solid #28a745;
 }
