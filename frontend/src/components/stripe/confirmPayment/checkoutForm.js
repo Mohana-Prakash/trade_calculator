@@ -6,7 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 const CheckoutForm = ({ paymentIntentId }) => {
-  console.log(paymentIntentId);
+  console.log("checkoutform", paymentIntentId);
 
   const stripe = useStripe();
   const elements = useElements();
